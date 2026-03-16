@@ -7,7 +7,6 @@
 #include <locale.h>
 #include <omp.h>
 
-// Функция для выделения памяти под квадратную матрицу n x n
 double** allocate_matrix(int n) {
     double** matrix = (double**)malloc(n * sizeof(double*));
     if (matrix == NULL) {
@@ -24,7 +23,6 @@ double** allocate_matrix(int n) {
     return matrix;
 }
 
-// Функция для освобождения памяти матрицы
 void free_matrix(double** matrix, int n) {
     if (matrix == NULL) return;
     for (int i = 0; i < n; i++) {
@@ -35,7 +33,6 @@ void free_matrix(double** matrix, int n) {
     free(matrix);
 }
 
-// Функция для генерации случайной матрицы
 void generate_random_matrix(double** matrix, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -44,7 +41,6 @@ void generate_random_matrix(double** matrix, int n) {
     }
 }
 
-// Функция для записи матрицы в файл
 void write_matrix_to_file(const char* filename, double** matrix, int n) {
     FILE* file = fopen(filename, "w");
     if (file == NULL) {
@@ -62,7 +58,7 @@ void write_matrix_to_file(const char* filename, double** matrix, int n) {
     fclose(file);
 }
 
-// Параллельное умножение матриц с OpenMP
+
 void multiply_matrices_parallel(double** A, double** B, double** C, int n) {
 #pragma omp parallel for collapse(2)
     for (int i = 0; i < n; i++) {
@@ -75,7 +71,6 @@ void multiply_matrices_parallel(double** A, double** B, double** C, int n) {
     }
 }
 
-// Функция для сохранения результатов эксперимента
 void save_results(const char* filename, int sizes[], double times[], int count) {
     FILE* file = fopen(filename, "w");
     if (file == NULL) {
@@ -106,7 +101,7 @@ void save_results(const char* filename, int sizes[], double times[], int count) 
 int main() {
     setlocale(LC_ALL, "Russian");
 
-    // Задаем размеры матриц для эксперимента
+
     int sizes[] = { 200, 400, 800, 1200, 1600, 2000 };
     int num_sizes = sizeof(sizes) / sizeof(sizes[0]);
 
@@ -116,30 +111,30 @@ int main() {
     printf("Параллельное умножение квадратных матриц\n");
     printf("========================================\n\n");
 
-    // Получаем количество потоков OpenMP
+
     int num_threads = omp_get_max_threads();
     printf("Количество потоков: %d\n", num_threads);
     printf("----------------------------------------\n");
 
-    // Инициализация генератора случайных чисел
+  
     srand(time(NULL));
 
-    // Проводим эксперимент для каждого размера
+
     for (int exp = 0; exp < num_sizes; exp++) {
         int n = sizes[exp];
         printf("\n--- Эксперимент %d: размер матрицы %d x %d ---\n", exp + 1, n, n);
 
-        // Выделение памяти для матриц
+     
         double** A = allocate_matrix(n);
         double** B = allocate_matrix(n);
         double** C = allocate_matrix(n);
 
-        // Генерация случайных матриц
+  
         printf("Генерация матриц...\n");
         generate_random_matrix(A, n);
         generate_random_matrix(B, n);
 
-        // Сохранение сгенерированных матриц в файлы
+   
         char filename_a[50], filename_b[50];
         sprintf(filename_a, "matrix_a_%d.txt", n);
         sprintf(filename_b, "matrix_b_%d.txt", n);
@@ -147,7 +142,7 @@ int main() {
         write_matrix_to_file(filename_b, B, n);
         printf("Матрицы сохранены в файлы %s и %s\n", filename_a, filename_b);
 
-        // Параллельное умножение матриц и замер времени
+    
         printf("Параллельное умножение...\n");
         double start = omp_get_wtime();
         multiply_matrices_parallel(A, B, C, n);
@@ -158,7 +153,7 @@ int main() {
 
         printf("Время выполнения: %f секунд\n", time_spent);
 
-        // Сохранение результата
+    
         char filename_c[50];
         sprintf(filename_c, "matrix_c_%d.txt", n);
         write_matrix_to_file(filename_c, C, n);
@@ -172,12 +167,12 @@ int main() {
         printf("----------------------------------------\n");
     }
 
-    // Сохранение всех результатов в итоговый файл
+
     printf("\n========================================\n");
     printf("Сохранение итоговых результатов...\n");
     save_results("experiment_results.txt", sizes, execution_times, num_sizes);
 
-    // Вывод итоговой таблицы
+  
     printf("\n");
     printf("ИТОГОВАЯ ТАБЛИЦА РЕЗУЛЬТАТОВ:\n");
     printf("+-----------------+------------------------+\n");
@@ -188,7 +183,6 @@ int main() {
     }
     printf("+-----------------+------------------------+\n");
 
-    // Вывод данных в формате CSV для построения графиков
     printf("\n");
     printf("Данные для построения графиков (CSV):\n");
     printf("Размер,Время\n");
