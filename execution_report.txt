@@ -1,0 +1,90 @@
+=========================================
+FINAL REPORT: MPI Matrix Multiplication
+=========================================
+
+SYSTEM SPECIFICATIONS:
+---------------------
+Processes used in this run: 1
+Measurements per configuration: 3
+
+PERFORMANCE RESULTS (for 1 processes):
+----------------------------------------
+
+AVERAGE EXECUTION TIME (seconds):
+--------------------------------
+Size	Time (mean ± std dev)
+----	--------------------
+200	0.0532 ± 0.0020
+400	0.3782 ± 0.0154
+800	2.9362 ± 0.0097
+1200	10.2181 ± 0.1253
+1600	24.4613 ± 0.0438
+2000	47.9901 ± 0.1622
+
+
+SPEEDUP & EFFICIENCY:
+-------------------
+Speedup (S = T?/T?) and Efficiency (E = S/p ? 100%) can be calculated
+by comparing single-process and multi-process results from separate runs.
+
+=========================================
+=========================================
+FINAL REPORT: MPI Matrix Multiplication
+=========================================
+
+SYSTEM SPECIFICATIONS:
+---------------------
+Processes used in this run: 2
+Measurements per configuration: 3
+
+PERFORMANCE RESULTS (for 2 processes):
+----------------------------------------
+
+AVERAGE EXECUTION TIME (seconds):
+--------------------------------
+Size	Time (mean ± std dev)
+----	--------------------
+200	0.0281 ± 0.0037
+400	0.1918 ± 0.0052
+800	1.9959 ± 0.3253
+1200	7.7683 ± 0.4167
+1600	16.5322 ± 0.3359
+2000	34.0354 ± 0.5244
+
+
+SPEEDUP & EFFICIENCY:
+-------------------
+Speedup (S = T?/T?) and Efficiency (E = S/p ? 100%) can be calculated
+by comparing single-process and multi-process results from separate runs.
+
+=========================================
+=========================================
+FINAL REPORT: MPI Matrix Multiplication
+=========================================
+
+SYSTEM SPECIFICATIONS:
+---------------------
+Processes used in this run: 4
+Measurements per configuration: 3
+
+PERFORMANCE RESULTS (for 4 processes):
+----------------------------------------
+
+AVERAGE EXECUTION TIME (seconds):
+--------------------------------
+Size	Time (mean ± std dev)
+----	--------------------
+200	0.0224 ± 0.0002
+400	0.1752 ± 0.0043
+800	1.3461 ± 0.0403
+1200	4.5073 ± 0.0503
+1600	9.5207 ± 0.9894
+2000	17.5463 ± 0.0832
+
+
+SPEEDUP & EFFICIENCY:
+-------------------
+Speedup (S = T?/T?) and Efficiency (E = S/p ? 100%) can be calculated
+by comparing single-process and multi-process results from separate runs.
+
+=========================================
