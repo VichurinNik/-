@@ -79,6 +79,7 @@
 #Графики
 График зависимости времени от размера матрицы для разного количества потоков
 <img width="759" height="390" alt="image" src="https://github.com/user-attachments/assets/fc50c081-ded4-4295-8819-77151355a159" />
+
 Сравнение времени выполнения для матрицы 2000 на 2000
 <img width="633" height="502" alt="image" src="https://github.com/user-attachments/assets/443a3ca6-5d91-4f41-89b1-3c9509b0ad3b" />
 
